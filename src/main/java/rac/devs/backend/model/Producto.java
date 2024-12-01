@@ -1,36 +1,32 @@
+
 package rac.devs.backend.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "producto")
+@Table(name = "productos")
 public class Producto {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "producto_seq")
+    @SequenceGenerator(name = "producto_seq", sequenceName = "producto_seq", allocationSize = 1)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "precio")
+    @Column(name = "precio", nullable = false)
     private Double precio;
 
-    @Column(name = "marca")
+    @Column(name = "marca", nullable = false)
     private String marca;
 
-    @Column(name = "codigoqr")
-    private String codigoQr;
+    @Column(name = "stock", nullable = false)
+    private Integer stock;
 
-    @Column(name = "mes")
-    private String mes;
-
-    // Getters y setters
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -63,19 +59,11 @@ public class Producto {
         this.marca = marca;
     }
 
-    public String getCodigoQr() {
-        return codigoQr;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setCodigoQr(String codigoQr) {
-        this.codigoQr = codigoQr;
-    }
-
-    public String getMes() {
-        return mes;
-    }
-
-    public void setMes(String mes) {
-        this.mes = mes;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 }

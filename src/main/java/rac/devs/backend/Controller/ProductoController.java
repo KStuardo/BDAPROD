@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.*;
 import rac.devs.backend.model.Producto;
 import rac.devs.backend.Repository.ProductoRepository;
 
+
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/productos")
+@CrossOrigin(origins="*")
 public class ProductoController {
 
     @Autowired

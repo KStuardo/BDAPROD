@@ -56,7 +56,7 @@ public class ProductoController {
         }
     }
 
-    // Eliminar un producto
+    // Eliminar un producto existente 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProducto(@PathVariable Long id) {
         if (productoRepository.existsById(id)) {
